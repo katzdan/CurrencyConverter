@@ -1,20 +1,17 @@
-package com.katzdan.currencyconverter.dataservice;
-
+package com.katzdan.currencyconverter.models;
 
 import android.util.Pair;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 public class RatesData {
 
     @SerializedName("rates")
     @Expose
-    private HashMap<String, Pair<String,Float>> rates;
+    private HashMap<String, Pair<String, Float>> rates = new HashMap<>();
     @SerializedName("base")
     @Expose
     private String base;
@@ -26,9 +23,9 @@ public class RatesData {
         return rates;
     }
 
-    public void setRates(HashMap<String, Pair<String,Float>> rates) {
-        this.rates = rates;
-    }
+//    public void setRates(HashMap<String, Pair<String,Float>> rates) {
+//        this.rates = rates;
+//    }
 
     public String getBase() {
         return base;

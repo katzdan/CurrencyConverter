@@ -1,4 +1,4 @@
-package com.katzdan.currencyconverter.dataservice;
+package com.katzdan.currencyconverter.models;
 
 public class Rate {
 

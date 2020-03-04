@@ -1,18 +1,16 @@
-package com.katzdan.currencyconverter;
+package com.katzdan.currencyconverter.repositories;
 
 import android.content.Context;
 import android.util.Log;
-import android.util.Pair;
+
+import androidx.lifecycle.MutableLiveData;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.katzdan.currencyconverter.dataservice.RatesData;
-import com.katzdan.currencyconverter.dataservice.RatesServiceDef;
-
-import org.json.JSONObject;
+import com.katzdan.currencyconverter.models.RatesData;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,10 +18,10 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class DataFetcher implements Callback<JsonObject> {
+public class Repository implements Callback<JsonObject> {
 
-    private static final String TAG = "Controller";
-    String HTTPS_API_URL = "https://api.exchangeratesapi.io/latest?base=USD";
+    private static final String TAG = "Repository";
+    String HTTPS_API_URL = "https://api.exchangeratesapi.io/latest/";
     CallbackFunc callbackFunc;
     Context context;
 
@@ -60,9 +58,11 @@ public class DataFetcher implements Callback<JsonObject> {
             JsonElement jsonTree = parser.parse(response.body().toString());
             RatesData ratesData = RatesJsonParser.parse(context, jsonTree);
 
-            Log.i(TAG, "Rates data = " + ratesData.toString());
+            Log.i(TAG, "RatesActivity data = " + ratesData.toString());
 
-            this.callbackFunc.callback(ratesData);
+            MutableLiveData<RatesData> mutableLiveData = new MutableLiveData<>();
+            mutableLiveData.setValue(ratesData);
+            this.callbackFunc.callback(mutableLiveData);
 
         } else {
             Log.e(TAG, response.errorBody().toString());
@@ -75,6 +75,6 @@ public class DataFetcher implements Callback<JsonObject> {
     }
 
     public interface CallbackFunc {
-        void callback(RatesData ratesData);
+        void callback(MutableLiveData<RatesData> ratesData);
     }
 }

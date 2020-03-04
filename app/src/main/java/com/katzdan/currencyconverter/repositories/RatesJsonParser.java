@@ -1,4 +1,4 @@
-package com.katzdan.currencyconverter;
+package com.katzdan.currencyconverter.repositories;
 
 import android.content.Context;
 import android.util.Log;
@@ -6,13 +6,10 @@ import android.util.Pair;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.katzdan.currencyconverter.dataservice.RatesData;
+import com.katzdan.currencyconverter.Utils;
+import com.katzdan.currencyconverter.models.RatesData;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Map;
-import java.util.TimeZone;
 
 public class RatesJsonParser {
 
@@ -34,7 +31,7 @@ public class RatesJsonParser {
                     Log.i(TAG, "entry :" + entry.getKey() + ", value =" + entry.getValue());
                     String currencyCode = (String)entry.getKey();
                     String currencyName = Utils.getStringByIdName(context, currencyCode);
-                    ratesData.getRates().put((String)entry.getKey(), new Pair<>(currencyName, (Float)entry.getValue()));
+                    ratesData.getRates().put((String) entry.getKey(), new Pair<>(currencyName, Float.valueOf(entry.getValue().toString())));
                 }
             }
         }
