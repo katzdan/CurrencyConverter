@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">CurrencyConverter</string>
+    <string name="action_settings">Settings</string>
+    <string name="CAD">Canadian dollar</string>
+    <string name="HKD">Hong Kong dollar</string>
+    <string name="ISK">Icelandic krona</string>
+    <string name="PHP">Philippine peso</string>
+    <string name="DKK">Danish krone</string>
+    <string name="HUF">Hungarian forint</string>
+    <string name="CZK">Czech koruna</string>
+    <string name="GBP">Pound sterling</string>
+    <string name="RON">Romanian leu</string>
+    <string name="SEK">Swedish krona</string>
+    <string name="IDR">Indonesian rupiah</string>
+    <string name="INR">Indian rupee</string>
+    <string name="BRL">Brazilian real</string>
+    <string name="RUB">Russian rouble</string>
+    <string name="HRK">Croatian kuna</string>
+    <string name="JPY">Japanese yen</string>
+    <string name="THB">Thai baht</string>
+    <string name="CHF">Swiss franc</string>
+    <string name="EUR">Euro</string>
+    <string name="MYR">Malaysian ringgit</string>
+    <string name="BGN">Bulgarian lev</string>
+    <string name="TRY">Turkish lira</string>
+    <string name="CNY">Chinese yuan renminbi</string>
+    <string name="NOK">Norwegian krone</string>
+    <string name="NZD">New Zealand dollar</string>
+    <string name="ZAR">South African rand</string>
+    <string name="USD">US dollar</string>
+    <string name="MXN">Mexican peso</string>
+    <string name="SGD">Singapore dollar</string>
+    <string name="AUD">Australian dollar</string>
+    <string name="ILS">Israeli shekel</string>
+    <string name="KRW">South Korean won</string>
+    <string name="PLN">Polish zloty</string>
+
+</resources>
