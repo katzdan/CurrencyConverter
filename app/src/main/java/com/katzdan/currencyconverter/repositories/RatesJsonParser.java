@@ -7,6 +7,7 @@ import android.util.Pair;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.katzdan.currencyconverter.Utils;
+import com.katzdan.currencyconverter.models.Rate;
 import com.katzdan.currencyconverter.models.RatesData;
 
 import java.util.Map;
@@ -31,7 +32,8 @@ public class RatesJsonParser {
                     Log.i(TAG, "entry :" + entry.getKey() + ", value =" + entry.getValue());
                     String currencyCode = (String)entry.getKey();
                     String currencyName = Utils.getStringByIdName(context, currencyCode);
-                    ratesData.getRates().put((String) entry.getKey(), new Pair<>(currencyName, Float.valueOf(entry.getValue().toString())));
+                    Rate rate = new Rate(currencyCode, currencyName, Float.valueOf(entry.getValue().toString()), Float.valueOf(entry.getValue().toString()));
+                    ratesData.getRates().put((String) entry.getKey(), rate);
                 }
             }
         }

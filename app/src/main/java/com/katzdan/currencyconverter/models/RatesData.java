@@ -11,7 +11,7 @@ public class RatesData {
 
     @SerializedName("rates")
     @Expose
-    private HashMap<String, Pair<String, Float>> rates = new HashMap<>();
+    private HashMap<String, Rate> rates = new HashMap<>();
     @SerializedName("base")
     @Expose
     private String base;
@@ -19,13 +19,9 @@ public class RatesData {
     @Expose
     private String date;
 
-    public HashMap<String, Pair<String,Float>> getRates() {
+    public HashMap<String, Rate> getRates() {
         return rates;
     }
-
-//    public void setRates(HashMap<String, Pair<String,Float>> rates) {
-//        this.rates = rates;
-//    }
 
     public String getBase() {
         return base;

@@ -36,8 +36,9 @@ public class RatesRecyclerViewAdapter extends RecyclerView.Adapter<RatesRecycler
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         //holder.mItem = mValues.getRates().get(position);
-        holder.mIdView.setText(ratesData.getRates().get(position).first);
-        holder.mContentView.setText(ratesData.getRates().get(position).second.toString());
+        Object[] keys = ratesData.getRates().keySet().toArray();
+        holder.mIdView.setText(ratesData.getRates().get(keys[position]).getCurrencyName());
+        holder.mContentView.setText(ratesData.getRates().get(keys[position]).getCalculatedValue().toString());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override

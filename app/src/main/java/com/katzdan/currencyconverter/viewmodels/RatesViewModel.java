@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
+import com.katzdan.currencyconverter.models.Rate;
 import com.katzdan.currencyconverter.models.RatesData;
 
 public class RatesViewModel extends AndroidViewModel {
@@ -30,4 +31,19 @@ public class RatesViewModel extends AndroidViewModel {
     public MutableLiveData<RatesData> getRatetListObservable() {
         return rateListObservable;
     }
+
+    public void setBaseValue(float value){
+        //return new
+        RatesData ratesData = rateListObservable.getValue();
+
+        //iterate through all currencies and update the calculated value
+        for (String CurrencyCode :  ratesData.getRates().keySet()){
+            Rate rate = ratesData.getRates().get(CurrencyCode);
+            rate.setCalculatedValue(rate.getValue()*value);
+            ratesData.getRates().put(CurrencyCode, rate);
+        }
+
+        rateListObservable.postValue(ratesData);
+    }
+
 }
